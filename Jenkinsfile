@@ -6,21 +6,19 @@ pipeline {
     }
     
     stages {
-        stage("run frontend") {
+        stage("Build") {
             steps {
-                echo 'executing yarn...'
-                nodejs('Node-18.7'){
-                    sh 'yarn install'
-                    sh 'node -v'
-                    sh 'yarn -v'
-                }
+                echo 'building...'
             }
         }
-        stage("run backend"){
+        stage("Test"){
             steps {
-                echo 'executing gradle...'
-                sh './gradlew -v'
-
+                echo 'testing...'
+            }
+        }
+        stage("Deployment"){
+            steps {
+                echo 'deploying...'
             }
         }
     }
