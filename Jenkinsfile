@@ -1,3 +1,5 @@
+def gv
+
 pipeline {
     agent any
     parameters {
@@ -5,9 +7,16 @@ pipeline {
         booleanParam(name: 'executeTests', defaultValue: true, description: '')
     }
     stages {
+        stage("init") {
+            steps {
+                dv = load "script.groovy"
+            }
+        }
         stage("Build") {
             steps {
-                echo "building... ${params.VERSION}"
+                scripts {
+                    gv.buildFunc()
+                }
             }
         }
         stage("Test"){
@@ -17,12 +26,16 @@ pipeline {
                 }
             }
             steps {
-                echo "testing... ${params.VERSION}"
+                script {
+                    gv.testFunc()
+                }
             }
         }
         stage("Deployment"){
             steps {
-                echo "deploying... ${params.VERSION}"
+                script {
+                    gv.deployFunc()
+                }
             }
         }
     }
