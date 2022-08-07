@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage("init") {
             steps {
-                dv = load "script.groovy"
+                gv = load "script.groovy"
             }
         }
         stage("Build") {
