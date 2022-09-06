@@ -1,6 +1,5 @@
 def buildFunc() {
   echo "building... ${params.VERSION}"
-  node --version
 }
 
 def testFunc() {
