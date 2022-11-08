@@ -1,7 +1,12 @@
 def gv
 
 pipeline {
-    agent any {
-        echo '1'
+    agent any 
+    stages {    
+        stage("run"){
+            step {
+                echo '1'
+            }
+        }
     }
 }
