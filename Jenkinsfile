@@ -4,7 +4,7 @@ pipeline {
     agent any 
     stages {    
         stage("run"){
-            step {
+            steps {
                 echo '1'
             }
         }
